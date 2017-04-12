@@ -1,0 +1,4 @@
+# Référencement webophil.net
+# Fichier robots.txt pour le site : https://cecilejobert.github.io/portfolio/
+User-agent: *
+Sitemap: https://cecilejobert.github.io/portfolio/sitemap.xml
