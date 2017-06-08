@@ -11,7 +11,7 @@ body {
       background-image: url("images/background1.png");
       /*overflow: hidden;*/
       width : 100%;
-      
+      color: violet transparent;
       margin: 0;
       font-family: 'Raleway',thin,sans-serif;
    
@@ -150,7 +150,94 @@ h3{
 
 /*bulle*/
 
-svg {
+html,
+body,
+#bubbles {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+#bubbles {
+  padding: 100px 0;
+  position: relative;
+}
+
+.bubble {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  transition: scale .05s linear;
+}
+
+.large {
+  background: url(https://s15.postimg.org/5awlpa83r/large_bubble.png);
+  width: 148px;
+  height: 150px;
+}
+
+.small {
+  background: url(https://s15.postimg.org/8ryns975z/small_bubble.png);
+  width: 92px;
+  height: 91px;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    top: 500px;
+  }
+  100% {
+    top: -500px;
+  }
+}
+
+@-webkit-keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+@-moz-keyframes moveclouds {
+  0% {
+    top: 500px;
+  }
+  100% {
+    top: -500px;
+  }
+}
+
+@-moz-keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+@-o-keyframes moveclouds {
+  0% {
+    top: 500px;
+  }
+  100% {
+    top: -500px;
+  }
+}
+
+@-o-keyframes sideWays {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+
+/*svg {
     width: 25vw;
     max-width: 250px;
     max-height: 250px;
@@ -195,6 +282,6 @@ svg {
     transform: translateY(calc(100vh));
   }
 }
-
+*/
 /*scroll*/
 

@@ -1,71 +1,45 @@
-// $( '.item' ).height( window.innerHeight );
-// var $document = $( document.body );
-// var $revealBar = $( '.red-container' );
-// var wrapperHeight = $document.height();
-// var stepDistance = 101;
-// var documentHeight = window.innerHeight;
-// var positions = [];
-// var heights = [];
-// var elements = $( '.item:not(".main")' );
+function createBubbles() {
+  var randomLeft = Math.floor(Math.random() * 100) + 1;
+  var getBubbleSize = ["large", "small"];
+  var rand = Math.random();
+  rand *= getBubbleSize.length;
+  var bubbleSize = getBubbleSize[Math.floor(rand)];
+  var randomOpacity = Math.floor(Math.random() * (9 - 8 + 1)) + 8;
+  var scaleValue = Math.floor(Math.random() * (9 - 5 + 1)) + 5;
+  var randomScale = "scale(0." + scaleValue + ")";
+  var verticalSpeed = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+  var frequency = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+  var randomAnimation = "moveclouds " + verticalSpeed + "s linear infinite, sideWays " + frequency + "s  ease-in-out infinite alternate";
 
-// // Cache heights and positions
-// for( var i = 0; i < elements.length; i++ ) {
-//   var $element = $(elements[i]);
-//   var height = $element.offset().top + documentHeight;
-//   if (height > wrapperHeight) {
-//     height = wrapperHeight;
-//   }
-//   positions.push(height);
-//   heights.push($element.height());
-// }
+  $("#bubbles").append('<div class="bubble ' + bubbleSize + '" style="left:' + randomLeft + '%;opacity:0.' + randomOpacity + ';transform:' + randomScale + ';-moz-transform:' + randomScale + ';-webkit-transform:' + randomScale + ';-webkit-animation:' + randomAnimation + ';-moz-animation:' + randomAnimation + ';--o-animation:' + randomAnimation + ';"></div>');
+}
 
-// var $nodes =  $( '.node' );
+for (i = 0; i < 47; i++) { //create bubble every .5 seconds
+  (function(i) {
+    window.setTimeout(function() {
+      createBubbles();
+    }, i * 500);
+  }(i));
+}
 
-// // Should totally be debounced /w animation frame. I know,
-// // this whole thing is slightly inefficient.
-// // And magic numbers too!
-// $( document ).scroll( function() {
+$("#bubbles").on("click", ".large", function() {
+  var bubble = $(this);
+  $(this).css("transform", "scale(1.1)");
+  setTimeout(function() {
+    $(bubble).css("background", "url(https://s15.postimg.org/w7gkxlqx3/large_bubble_burst.png)")
+    setTimeout(function() {
+      $(bubble).css("opacity", "0");
+    }, 50);
+  }, 20);
+});
 
-//   nodeTop = $document.scrollTop() + documentHeight + 1;
-//   var current = 0;
-  
-//   // Active/non active states
-//   for( var i = 0; i < positions.length; i++ ) {
-//     if(nodeTop > positions[i]) {
-//       current = i;
-//       $nodes.eq( i ).addClass( 'active' );
-//     } else {
-//       $nodes.eq( i ).removeClass( 'active' );
-//     }
-//   }
-  
-//   // Bar positioning, so sections can have different heights.
-//   var distanceToNext = 0;
-  
-//   // Initial node, already has some of the bar filled.
-//   if( nodeTop < positions[0] ) {	
-//     var nextStep = (nodeTop - positions[current]) / (positions[current + 1] - positions[current]);
-    
-//     // Calculating for node widths.
-//     var totalWidth = ((stepDistance) + ( current * stepDistance ) + (nextStep * stepDistance)) * 0.4;
-//     $revealBar.width( (0.6 * stepDistance) + totalWidth );
-
-//   // Final node covered.
-//   } else if (nodeTop > positions[6]) {
-//     $revealBar.width(stepDistance * (current + 1));
-  
-//   // regular nodes
-//   } else if ( current < elements.length ) {
-//     var nextStep = (nodeTop - positions[current]) / (positions[current + 1] - positions[current]);
-//     var totalWidth = stepDistance + ( current * stepDistance ) + (nextStep * stepDistance);
-// 	 $revealBar.width( totalWidth );
-//   }
-// })
-
-// // Clicking the nodes... again, nothing special ;)
-// $nodes.each( function( index ) {
-//   var $node = $( this );
-//   $node.click( function() {
-//     $('html, body').animate({ scrollTop: (positions[ index ] - documentHeight + 10)}, 1000 );
-//   });
-// })
+$("#bubbles").on("click", ".small", function() {
+  var bubble = $(this);
+  $(this).css("transform", "scale(1.1)");
+  setTimeout(function() {
+    $(bubble).css("background", "url(https://s15.postimg.org/l5bhz5wuf/small_bubble_burst.png)")
+    setTimeout(function() {
+      $(bubble).css("opacity", "0");
+    }, 50);
+  }, 20);
+});
