@@ -43,21 +43,22 @@
             <!--css perso qui doit etre apres celui de bootstrap-->
             <link rel="stylesheet" href="stylsheet.css" type="text/css">
 
-        </head>
-²    
+        </head>   
         <body>
             <main> 
                 <!--navigation/logo-->
                 <header>
-                    <div class="contnav">
-                        <div class="logo">
-                            <image src="images/logoC.png"></image>
+                    <div class="contnav container">
+                    	<div class="row">
+                        	<div class="logo col-xs-2 col-sm-3 col-md-2 ">
+                            	<image src="images/logoC.png"></image>
+                        	</div>
+                        	
+                        	<nav id="nav-1" class="col-xs-offset-6 col-sm-offset-5 col-md-offset-4 col-xs-4 col-sm-5 col-md-6">
+                         	 	<a class="link-1 .active" href="#">portfolio</a>
+                          		<a class="link-1" href="#">contact</a>
+                        	</nav>
                         </div>
-                        
-                        <nav id="nav-1">
-                          <a class="link-1 .active" href="#portfolio">portfolio</a>
-                          <a class="link-1" href="#contact">contact</a>
-                        </nav>
                         
                     </div>
                 
@@ -123,7 +124,7 @@
                 <mask id="mask--light-top">
                     <rect fill="url(#gradient--bw-light)"
                       width="100%" height="100%"
-                      transform="rotate(180, 50%, 50%)">
+                      transform="rotate(180, 50%, 50)">
                     </rect>
                 </mask>   
     
@@ -160,10 +161,10 @@
             
                 
                 <!--titre-->
-                <div class="accueil">
+                <div class="container accueil col-lg-offset-3 col-lg-6 col-lg-offset-3">
                     <h2>cecile</h2>
                     <h3>WebDesigner - Graphiste</h3>
-                    <image class="bordure" src="images/bordureC.png"></image>
+                    <img class="bordure col-lg-offset-1 col-lg-10 col-lg-offset-1" src="images/bordureC.png"></img>
                 </div>
                 
                 </header>
@@ -185,7 +186,7 @@
         
         <!--boostrap et jquery-->
         
-         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
             <script src="js/bootstrap.min.js"></script>
@@ -195,5 +196,5 @@
     
    
     
-</body>
+	</body>
 </html>
